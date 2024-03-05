@@ -1,8 +1,3 @@
-from Home_work_13.classes import functions
-
-products = functions.load_product_list()
-
-
 class Category:
     name: str
     description: str
