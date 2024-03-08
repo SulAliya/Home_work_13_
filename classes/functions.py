@@ -7,7 +7,7 @@ def load_product_list():
     получаем список json.
     :return:
     """
-    with open('../products.json', 'r', encoding='utf-8') as file:
+    with open('products.json', 'r', encoding='utf-8') as file:
         products = json.load(file)
     return products
 
@@ -83,7 +83,6 @@ def get_quantity(product_list):
 
 
 # products=load_product_list()
-#
 # for product_list in products:
 #     category_name=get_name_category(product_list)
 #     description_category = get_category_description(product_list)
@@ -93,7 +92,6 @@ def get_quantity(product_list):
 #     price = get_products_price(product_list)
 #     quantity_in_stock = get_quantity(product_list)
 #
-#
 # print(category_name)
 # print(description_category)
 # print(products_name)
@@ -101,4 +99,4 @@ def get_quantity(product_list):
 # print(price)
 # print(quantity_in_stock)
 # print(category_products)
-#
+
