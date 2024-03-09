@@ -42,16 +42,16 @@ class Category:
     def get_category_list(cls):
         return cls.cat_list
 
-    def add_product_object(self, product_obj):
+    @staticmethod
+    def set_product(product_list):
         """
         метод для добавления товаров в категорию (в список). Метод должен добавлять в список экземпляр класса Product,
         соответственно список будет состоять из экземлпяров класса Product.
         :param product_obj:принимоет объект класса продукт
         :return:
         """
-        self.__category_products.append(product_obj)
-        print(self.__category_products)
-        return self.__category_products
+        __category_products = product_list
+        return __category_products
 
     @property
     def get_category_products(self):

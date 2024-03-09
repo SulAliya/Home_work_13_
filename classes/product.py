@@ -1,3 +1,6 @@
+from classes.category import Category
+
+
 class Product:
     product_name: str
     product_description: str
@@ -36,10 +39,17 @@ class Product:
         :return: cat_list
         """
         cls.prod_list.append(product_object)
+        cls.add_in_category(cls.prod_list)
+
 
     @classmethod
     def get_product_list(cls):
         return cls.prod_list
+
+    @classmethod
+    def add_in_category(cls, prod):
+        return Category.set_product(prod)
+
 
     @classmethod
     def create_new_product_object(cls, product_name, product_description, price, quantity_in_stock):
