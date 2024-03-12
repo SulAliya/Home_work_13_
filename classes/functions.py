@@ -8,8 +8,8 @@ def load_product_list():
     :return:
     """
     with open('products.json', 'r', encoding='utf-8') as file:
-        products = json.load(file)
-    return products
+        src_file = json.load(file)
+    return src_file
 #
 #
 # def get_name_category(product_list):
@@ -82,7 +82,7 @@ def load_product_list():
 #     return quantity_in_stock
 
 
-# products=load_product_list()
+# src_file=load_product_list()
 # for product_list in products:
 #     category_name=get_name_category(product_list)
 #     description_category = get_category_description(product_list)

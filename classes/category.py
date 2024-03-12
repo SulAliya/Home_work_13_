@@ -21,13 +21,17 @@ class Category:
         return (f"Имя категории - {self.category_name}; "
                 f"Описание категории - {self.description_category}; Список продуктов - {self.__category_products}\n")
 
-    def add_product(self, *args):
+    def add_product(self, product_name):
         """
         принимает на вход объект товара и добавлять его в список.
-        :param product_name:
+        :param product:
         :return:
         """
-        return self.__category_products.extend(*args)
+        if isinstance(product_name, Product):
+            self.__category_products.append(product_name)
+            Category.product_count += 1
+        else:
+            print("Продукт должен быть объектом класса Product")
 
     @property
     def goods(self):
