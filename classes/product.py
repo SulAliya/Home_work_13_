@@ -29,23 +29,26 @@ class Product:
             return result2
         return inner
 
-    @staticmethod
-    @my_decorator
-    def create_new_product_object(**kwargs):
+    @classmethod
+    def create_new_product_object(cls, **kwargs):
         """
         создали новый экземпляр класса Product
         """
-        new_product_object = Product(**kwargs)
-        return new_product_object
+        product_name = kwargs['product_name']
+        product_description = kwargs['product_description']
+        price = kwargs['price']
+        quantity_in_stock = kwargs['quantity_in_stock']
+        return cls(product_name, product_description, price, quantity_in_stock)
 
     @property
-    def product_price_func(self):
-        return self.price
+    def price(self):
+        return self.__price
 
-    @product_price_func.setter
-    def product_price_func(self, new_price):
+    @price.setter
+    def price(self, new_price):
         if new_price <= 0:
             print("цена введена некорректная")
         else:
-            self.price = new_price
+            self.__price = new_price
             print("цена корректная")
+
