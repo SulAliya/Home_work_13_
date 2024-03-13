@@ -33,14 +33,14 @@ class Category:
         else:
             print("Продукт должен быть объектом класса Product")
 
-    @property
-    def goods(self):
-        category_product_list = ''
-        for product in self.list_goods:
-            category_product_list += f'{product.product_name}, {product.price} руб. Остаток: {product.quantity_in_stock} шт.\n'
-        return category_product_list
 
-    @goods.setter
-    def goods(self, item):
-        self.list_goods.append(item)
+    @property
+    def category_products(self):
+        return self.__category_products
+
+    @category_products.setter
+    def category_products(self):
+        for new_product in self.__category_products:
+            self.__category_products.append(f'{new_product.product_name}, {new_product.price} руб. Остаток: {new_product.quantity_in_stock} шт.')
+        return self.__category_products
 
