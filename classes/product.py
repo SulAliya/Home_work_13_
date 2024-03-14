@@ -1,4 +1,3 @@
-
 class Product:
     product_name: str
     product_description: str
@@ -8,12 +7,12 @@ class Product:
     def __init__(self, product_name, product_description, price, quantity_in_stock):
         self.product_name = product_name
         self.product_description = product_description
-        self.price = price
+        self.__price = price
         self.quantity_in_stock = quantity_in_stock
 
     def __repr__(self):
         return (f"Имя продукта - {self.product_name} Описание продукта - {self.product_description} "
-                f"Стоимость продукта - {self.price} Количество - {self.quantity_in_stock}")
+                f"Стоимость продукта - {self.__price} Количество - {self.quantity_in_stock}")
 
     @staticmethod
     def my_decorator(func):
@@ -27,6 +26,7 @@ class Product:
             }
             # print(f"Создали новый экземпляр товара = {result2}")
             return result2
+
         return inner
 
     @classmethod
@@ -51,4 +51,3 @@ class Product:
         else:
             self.__price = new_price
             print("цена корректная")
-
