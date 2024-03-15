@@ -51,3 +51,6 @@ class Product:
         else:
             self.__price = new_price
             print("цена корректная")
+
+
+
