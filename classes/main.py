@@ -26,7 +26,7 @@ product_1.price = -120  # проверяем корректность введе
 print(f'Длина первой категории до добавления {len(category_1.category_products)}')
 print(f'Длина второй категории до добавления {len(category_2.category_products)}\n')
 print(f'{category_1.category_products}')
-print(f'{category_2.category_products}')
+print(f'{category_2.category_products}\n')
 Category.add_product(category_1, product_5)
 Category.add_product(category_2, product_6)
 print(f'Длина первой категории после добавления {len(category_1.category_products)}')
