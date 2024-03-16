@@ -32,9 +32,12 @@ class Category:
         else:
             print("Продукт должен быть объектом класса Product")
 
+    def get_product_count(self):
+        return len(self.__category_products)
+
     @property
     def category_products(self):
-        result = []
+        result = ''
         for product in self.__category_products:
-            result.append (f'{product.product_name}, {product.price} руб. Остаток: {product.quantity_in_stock} шт.')
+            result += f'{product.product_name}, {product.price} руб. Остаток: {product.quantity_in_stock} шт.\n'
         return result

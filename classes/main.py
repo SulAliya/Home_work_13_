@@ -23,13 +23,16 @@ print(f'Новый продукт {product_6}\n')
 
 product_1.price = -120  # проверяем корректность введенной цены.
 
-print(f'Длина первой категории до добавления {len(category_1.category_products)}')
-print(f'Длина второй категории до добавления {len(category_2.category_products)}\n')
+print(f'Длина первой категории до добавления {category_1.get_product_count()}')
+print(f'Длина второй категории до добавления {category_2.get_product_count()}\n')
+
 print(f'{category_1.category_products}')
 print(f'{category_2.category_products}\n')
+
 Category.add_product(category_1, product_5)
 Category.add_product(category_2, product_6)
-print(f'Длина первой категории после добавления {len(category_1.category_products)}')
-print(f'Длина второй категории после добавления {len(category_2.category_products)}\n')
+
+print(f'Длина первой категории после добавления {category_1.get_product_count()}')
+print(f'Длина второй категории после добавления {category_2.get_product_count()}\n')
 print(category_1.category_products)
 print(category_2.category_products)
