@@ -80,7 +80,7 @@ def get_quantity(product_list):
     """
     quantity_in_stock = product_list["products"][0]['quantity']
     return quantity_in_stock
-
+#
 #
 # products=load_product_list()
 # for product_list in products:
