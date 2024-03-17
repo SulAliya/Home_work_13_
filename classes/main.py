@@ -25,16 +25,17 @@ category_2 = Category('Телевизоры', 'Современный телев
 # print(f'Длина второй категории до добавления {category_2.get_product_count()}\n')
 # print(f'{category_1.category_products}')
 # print(f'{category_2.category_products}\n')
-Category.add_product(category_1, product_5)
-Category.add_product(category_2, product_6)
+Category.add_product(category_1, product_5)  # добавляем продукт в категорию 1
+Category.add_product(category_2, product_6)  # добавляем продукт в категорию 2
 # print(f'Длина первой категории после добавления {category_1.get_product_count()}')
 # print(f'Длина второй категории после добавления {category_2.get_product_count()}\n')
 # print(category_1.category_products)
-print(category_2.category_products)
-print(category_1, category_2)
-print(product_1, product_2)
-# sum_price = product_5 + product_6
-# print(sum_price)
-Tv = CategoryIter(category_2.category_name, category_2.category_products) #
+# print(category_2.category_products)
+# print(category_1, category_2)
+# print(product_1, product_2)
+sum_price = product_5 + product_1
+
+print(sum_price)  # результат выполнения сложения двух продуктов, т.е сложение сумм, умноженных на количество на складе
+Tv = CategoryIter(category_2.category_name, category_2.category_products)  #
 for item in Tv:
     print(item, end='')

@@ -19,6 +19,11 @@ class Product:
         return f'{self.product_name}, {self.__price} руб. Остаток: {self.quantity_in_stock} шт.\n'
 
     def __add__(self, other):
+        """
+        сложение двух продуктов - сложением сумм, умноженных на количество на складе.
+        :param other:
+        :return:
+        """
         if isinstance(other, type(self)):
             return self.__price * self.quantity_in_stock + other.__price * other.quantity_in_stock
         else:
@@ -34,9 +39,7 @@ class Product:
                 'Стоимость продукта': result.price,
                 'Количество': result.quantity_in_stock
             }
-            # print(f"Создали новый экземпляр товара = {result2}")
             return result2
-
         return inner
 
     @classmethod
