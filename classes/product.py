@@ -14,6 +14,12 @@ class Product:
         return (f"Имя продукта - {self.product_name} Описание продукта - {self.product_description} "
                 f"Стоимость продукта - {self.__price} Количество - {self.quantity_in_stock}")
 
+    def __str__(self):
+        return f'{self.product_name}, {self.__price} руб. Остаток: {self.quantity_in_stock} шт.\n'
+
+    def __add__(self, other):
+        return self.__price*self.quantity_in_stock + other.__price*other.quantity_in_stock
+
     @staticmethod
     def my_decorator(func):
         def inner(**kwargs):
@@ -26,7 +32,6 @@ class Product:
             }
             # print(f"Создали новый экземпляр товара = {result2}")
             return result2
-
         return inner
 
     @classmethod

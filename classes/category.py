@@ -19,6 +19,13 @@ class Category:
     def __repr__(self):
         return (f"Имя категории - {self.category_name}; "
                 f"Описание категории - {self.description_category}; Список продуктов - {self.__category_products}\n")
+    def __len__(self):
+        len_products = 0
+        for i in self.__category_products:
+            len_products +=i.quantity_in_stock
+        return len_products
+    def __str__(self):
+        return f'{self.category_name},  количество продуктов: {len(self)} шт.\n'
 
     def add_product(self, product_name):
         """
