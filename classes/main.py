@@ -18,21 +18,20 @@ category_1 = Category('Смартфоны',
 category_2 = Category('Телевизоры', 'Современный телевизор, который позволяет наслаждаться '
                                     'просмотром, станет вашим другом и помощником', [product_4])
 
-print(f'Новый продукт {product_5}\n')  # проверяем новый объект.
-print(f'Новый продукт {product_6}\n')
-
-product_1.price = -120  # проверяем корректность введенной цены.
-
-print(f'Длина первой категории до добавления {category_1.get_product_count()}')
-print(f'Длина второй категории до добавления {category_2.get_product_count()}\n')
-
-print(f'{category_1.category_products}')
-print(f'{category_2.category_products}\n')
-
+# print(f'Новый продукт {product_5}\n')  # проверяем новый объект.
+# print(f'Новый продукт {product_6}\n')
+# product_1.price = -120  # проверяем корректность введенной цены.
+# print(f'Длина первой категории до добавления {category_1.get_product_count()}')
+# print(f'Длина второй категории до добавления {category_2.get_product_count()}\n')
+# print(f'{category_1.category_products}')
+# print(f'{category_2.category_products}\n')
 Category.add_product(category_1, product_5)
 Category.add_product(category_2, product_6)
-
-print(f'Длина первой категории после добавления {category_1.get_product_count()}')
-print(f'Длина второй категории после добавления {category_2.get_product_count()}\n')
-print(category_1.category_products)
-print(category_2.category_products)
+# print(f'Длина первой категории после добавления {category_1.get_product_count()}')
+# print(f'Длина второй категории после добавления {category_2.get_product_count()}\n')
+# print(category_1.category_products)
+# print(category_2.category_products)
+print(category_1, category_2)
+print(product_1, product_2)
+sum_price = product_5 + product_6
+print(sum_price)
