@@ -1,4 +1,4 @@
-from classes.category import Category
+from classes.category import Category, CategoryIter
 from classes.product import Product
 
 product_1 = Product('Samsung Galaxy C23 Ultra', '256GB, Серый цвет, 200MP камера',
@@ -30,8 +30,11 @@ Category.add_product(category_2, product_6)
 # print(f'Длина первой категории после добавления {category_1.get_product_count()}')
 # print(f'Длина второй категории после добавления {category_2.get_product_count()}\n')
 # print(category_1.category_products)
-# print(category_2.category_products)
+print(category_2.category_products)
 print(category_1, category_2)
 print(product_1, product_2)
-sum_price = product_5 + product_6
-print(sum_price)
+# sum_price = product_5 + product_6
+# print(sum_price)
+Tv = CategoryIter(category_2.category_name, category_2.category_products) #
+for item in Tv:
+    print(item, end='')
