@@ -19,13 +19,15 @@ class Category:
     def __repr__(self):
         return (f"Имя категории - {self.category_name}; "
                 f"Описание категории - {self.description_category}; Список продуктов - {self.__category_products}\n")
+
     def __len__(self):
         len_products = 0
         for i in self.__category_products:
-            len_products +=i.quantity_in_stock
+            len_products += i.quantity_in_stock
         return len_products
+
     def __str__(self):
-        return f'{self.category_name},  количество продуктов: {len(self)} шт.\n'
+        return f'{self.category_name},  количество продуктов: {self.__len__()} шт.\n'
 
     def add_product(self, product_name):
         """
@@ -48,3 +50,24 @@ class Category:
         for product in self.__category_products:
             result += f'{product.product_name}, {product.price} руб. Остаток: {product.quantity_in_stock} шт.\n'
         return result
+
+
+class CategoryIter:
+    """
+    принимает на вход категорию и дает возможность использовать цикл for для прохода по всем товарам данной категории
+    """
+
+    def __init__(self, category_name, category_products):
+        self.category_name = category_name
+        self.__category_products = category_products
+        self.index = -1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        self.index += 1
+        if self.index >= len(self.__category_products):
+            raise StopIteration
+        else:
+            return self.__category_products[self.index]
