@@ -1,6 +1,7 @@
 from classes.category import Category, CategoryIter
-from classes.product import Product
+from classes.product import Product, SmartPhone, LawnGrass
 
+#продукты
 product_1 = Product('Samsung Galaxy C23 Ultra', '256GB, Серый цвет, 200MP камера',
                     180000.0, 5)
 product_2 = Product('Iphone 15', '512GB, Gray space', 210000.0, 8)
@@ -10,7 +11,7 @@ product_5 = Product.create_new_product_object(product_name='Nokia', product_desc
                                               quantity_in_stock=3)
 product_6 = Product.create_new_product_object(product_name='LG', product_description='Смарт ТВ', price=22000.0,
                                               quantity_in_stock=4)
-
+#категория
 category_1 = Category('Смартфоны',
                       'Смартфоны, как средство не только коммуникации, но и получение дополнительных функций для '
                       'удобства жизни',
@@ -33,9 +34,11 @@ Category.add_product(category_2, product_6)  # добавляем продукт
 # print(category_2.category_products)
 # print(category_1, category_2)
 # print(product_1, product_2)
-sum_price = product_5 + product_1
-
-print(sum_price)  # результат выполнения сложения двух продуктов, т.е сложение сумм, умноженных на количество на складе
-Tv = CategoryIter(category_2.category_name, category_2.category_products)  #
-for item in Tv:
-    print(item, end='')
+# sum_price = product_5 + product_1
+# print(sum_price)  # результат выполнения сложения двух продуктов, т.е сложение сумм, умноженных на количество на складе
+# Tv = CategoryIter(category_2.category_name, category_2.category_products)  #
+# for item in Tv:
+#     print(item, end='')
+print(Product.__mro__)
+print(SmartPhone.__mro__)
+print(LawnGrass.__mro__)

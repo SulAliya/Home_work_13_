@@ -1,4 +1,21 @@
-class Product:
+from abc import ABC, abstractmethod
+
+
+class BaseClass(ABC):
+    @abstractmethod
+    def __repr__(self):
+        pass
+
+
+class MixinLog:
+    def __init__(self, *args, **kwargs):
+        print(repr(self))
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}, {self.__dict__.items()}'
+
+
+class Product(MixinLog, BaseClass):
     product_name: str
     product_description: str
     price: float
@@ -10,6 +27,7 @@ class Product:
         self.product_description = product_description
         self.__price = price
         self.quantity_in_stock = quantity_in_stock
+        super().__init__()
 
     def __repr__(self):
         return (f"Имя продукта - {self.product_name} Описание продукта - {self.product_description} "
@@ -40,6 +58,7 @@ class Product:
                 'Количество': result.quantity_in_stock
             }
             return result2
+
         return inner
 
     @classmethod
@@ -66,7 +85,7 @@ class Product:
             print("цена корректная")
 
 
-class SmartPhone(Product):
+class SmartPhone(Product, MixinLog):
     productivity = str
     model = str
     internal_memory = float
@@ -81,7 +100,7 @@ class SmartPhone(Product):
         self.color = color
 
 
-class LawnGrass(Product):
+class LawnGrass(Product, MixinLog):
     def __init__(self, manufacturer_country, germination_period, color, product_name, product_description, price,
                  quantity_in_stock):
         super().__init__(product_name, product_description, price, quantity_in_stock)
