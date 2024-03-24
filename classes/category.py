@@ -41,6 +41,19 @@ class Category:
         else:
             print("Продукт должен быть объектом класса Product")
 
+    def average_price(self):
+        """
+        метод, который подсчитывает средний ценник всех товаров.
+        :return:
+        """
+        try:
+            result = 0
+            for product in self.__category_products:
+                result += product.price * product.quantity_in_stock
+            return result / len(self)
+        except ZeroDivisionError:
+            print('0')
+
     def get_product_count(self):
         return len(self.__category_products)
 
@@ -49,25 +62,27 @@ class Category:
         result = ''
         for product in self.__category_products:
             result += f'{product.product_name}, {product.price} руб. Остаток: {product.quantity_in_stock} шт.\n'
+            if product.quantity_in_stock == 0:
+                raise ValueError('Товар с нулевым количеством не может быть добавлен')
         return result
 
 
-class CategoryIter:
-    """
-    принимает на вход категорию и дает возможность использовать цикл for для прохода по всем товарам данной категории
-    """
-
-    def __init__(self, category_name, category_products):
-        self.category_name = category_name
-        self.__category_products = category_products
-        self.index = -1
-
-    def __iter__(self):
-        return self
-
-    def __next__(self):
-        self.index += 1
-        if self.index >= len(self.__category_products):
-            raise StopIteration
-        else:
-            return self.__category_products[self.index]
+# class CategoryIter:
+#     """
+#     принимает на вход категорию и дает возможность использовать цикл for для прохода по всем товарам данной категории
+#     """
+#
+#     def __init__(self, category_name, category_products):
+#         self.category_name = category_name
+#         self.__category_products = category_products
+#         self.index = -1
+#
+#     def __iter__(self):
+#         return self
+#
+#     def __next__(self):
+#         self.index += 1
+#         if self.index >= len(self.__category_products):
+#             raise StopIteration
+#         else:
+#             return self.__category_products[self.index]
