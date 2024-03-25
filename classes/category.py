@@ -38,6 +38,8 @@ class Category:
         if isinstance(product_name, Product):
             self.__category_products.append(product_name)
             Category.product_count += 1
+            if product_name.quantity_in_stock == 0:
+                raise ValueError('Товар с нулевым количеством не может быть добавлен')
         else:
             print("Продукт должен быть объектом класса Product")
 
@@ -50,7 +52,7 @@ class Category:
             result = 0
             for product in self.__category_products:
                 result += product.price * product.quantity_in_stock
-            return result / len(self)
+            return f'Средний чек {result / len(self)}'
         except ZeroDivisionError:
             print('0')
 
@@ -62,8 +64,6 @@ class Category:
         result = ''
         for product in self.__category_products:
             result += f'{product.product_name}, {product.price} руб. Остаток: {product.quantity_in_stock} шт.\n'
-            if product.quantity_in_stock == 0:
-                raise ValueError('Товар с нулевым количеством не может быть добавлен')
         return result
 
 
