@@ -36,10 +36,10 @@ class Category:
         :return:
         """
         if isinstance(product_name, Product):
-            self.__category_products.append(product_name)
-            Category.product_count += 1
             if product_name.quantity_in_stock == 0:
                 raise ValueError('Товар с нулевым количеством не может быть добавлен')
+            self.__category_products.append(product_name)
+            Category.product_count += 1
         else:
             print("Продукт должен быть объектом класса Product")
 
